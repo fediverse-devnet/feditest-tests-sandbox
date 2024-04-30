@@ -1,0 +1,13 @@
+{
+    "name" : "A_vs_2",
+    "roles" : [
+        {
+            "name" : "client",
+            "nodedriver" : "sandbox.SandboxMultClientDriver_ImplementationA"
+        },
+        {
+            "name" : "server",
+            "nodedriver" : "sandbox.SandboxMultServerDriver_Implementation2Faulty"
+        }
+    ]
+}
