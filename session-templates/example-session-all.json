@@ -1,0 +1,35 @@
+{
+    "constellation": {
+        "roles": [
+            {
+                "name": "server",
+                "nodedriver": null,
+                "parameters": null
+            },
+            {
+                "name": "client",
+                "nodedriver": null,
+                "parameters": null
+            }
+        ],
+        "name": null
+    },
+    "tests": [
+        {
+            "name": "sandbox.example_test_with_functions::example_test1",
+            "disabled": null
+        },
+        {
+            "name": "sandbox.example_test_with_functions::example_test2",
+            "rolemapping": {
+                "customer": "client",
+                "calculator": "server"
+            },
+            "disabled": null
+        },
+        {
+            "name": "sandbox.example_test_with_classes::ExampleTest1",
+            "disabled": null
+        }
+    ]
+}
