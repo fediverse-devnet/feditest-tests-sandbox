@@ -31,6 +31,11 @@
                     "disabled": null
                 },
                 {
+                    "name": "sandbox.example_test_with_functions::example_test3",
+                    "rolemapping": null,
+                    "disabled": null
+                },
+                {
                     "name": "sandbox.example_test_with_classes::ExampleTest1",
                     "rolemapping": null,
                     "disabled": null
@@ -68,6 +73,11 @@
                     "disabled": null
                 },
                 {
+                    "name": "sandbox.example_test_with_functions::example_test3",
+                    "rolemapping": null,
+                    "disabled": null
+                },
+                {
                     "name": "sandbox.example_test_with_classes::ExampleTest1",
                     "rolemapping": null,
                     "disabled": null
@@ -75,5 +85,5 @@
             ]
         }
     ],
-    "name": null
+    "name": "Sandbox default test run"
 }

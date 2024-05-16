@@ -16,14 +16,17 @@ storing them as part of the @test class instance, the @steps can access them.
 
 from typing import List
 
-from hamcrest import assert_that, equal_to
+from hamcrest import close_to, equal_to
 
-from feditest import step, test
+from feditest import hard_assert_that, soft_assert_that, step, test
 from feditest.protocols.sandbox import SandboxLogEvent, SandboxMultClient, SandboxMultServer
 
 
 @test
 class ExampleTest1:
+    """
+    Tests the sandbox toy protocol using a FedTest test class.
+    """
     def __init__(self,
         client: SandboxMultClient,
         server: SandboxMultServer
@@ -33,21 +36,22 @@ class ExampleTest1:
 
     @step
     def step1(self):
-        a : int = 2
+        a : float = 2.1
         b : int = 7
 
         self.server.start_logging()
 
-        c = self.client.cause_mult(self.server, a, b)
+        c : float = self.client.cause_mult(self.server, a, b)
 
-        assert_that(c, equal_to(14))
+        soft_assert_that(c, equal_to(14.0))
+        hard_assert_that(c, close_to(14.0, 0.5))
 
         log: List[SandboxLogEvent] = self.server.get_and_clear_log()
 
-        assert_that(len(log), equal_to(1))
-        assert_that(log[0].a, equal_to(a))
-        assert_that(log[0].b, equal_to(b))
-        assert_that(log[0].c, equal_to(c))
+        hard_assert_that(len(log), equal_to(1))
+        hard_assert_that(log[0].a, equal_to(a))
+        hard_assert_that(log[0].b, equal_to(b))
+        hard_assert_that(log[0].c, equal_to(c))
 
         self.c = c
 
@@ -56,4 +60,5 @@ class ExampleTest1:
 
         c_squared = self.client.cause_mult(self.server, self.c, self.c)
 
-        assert_that(c_squared, equal_to(self.c * self.c))
+        soft_assert_that(c_squared, equal_to(self.c * self.c))
+        hard_assert_that(c_squared, close_to(self.c * self.c, 0.5))
