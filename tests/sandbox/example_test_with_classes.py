@@ -34,26 +34,30 @@ class ExampleTest1:
         self.client = client
         self.server = server
 
+        # We put some test data into the test class instance to demonstrate how it can be passed
+        # along several test steps, even if one or more of them fail (with a soft assertion error)
+
+        self.a : float = 2.1
+        self.b : int = 7
+
+
     @step
     def step1(self):
-        a : float = 2.1
-        b : int = 7
 
         self.server.start_logging()
 
-        c : float = self.client.cause_mult(self.server, a, b)
+        self.c : float = self.client.cause_mult(self.server, self.a, self.b)
 
-        soft_assert_that(c, equal_to(14.0))
-        hard_assert_that(c, close_to(14.0, 0.5))
+        soft_assert_that(self.c, equal_to(14.0))
+        hard_assert_that(self.c, close_to(14.0, 0.5))
 
         log: List[SandboxLogEvent] = self.server.get_and_clear_log()
 
         hard_assert_that(len(log), equal_to(1))
-        hard_assert_that(log[0].a, equal_to(a))
-        hard_assert_that(log[0].b, equal_to(b))
-        hard_assert_that(log[0].c, equal_to(c))
+        hard_assert_that(log[0].a, equal_to(self.a))
+        hard_assert_that(log[0].b, equal_to(self.b))
+        hard_assert_that(log[0].c, equal_to(self.c))
 
-        self.c = c
 
     @step
     def step2(self):
