@@ -30,7 +30,7 @@ def type_error() -> None:
 @test
 def assertion_error() -> None:
     """
-    This test always fails a standard Python exception.
+    This test fails a standard Python assertion.
     """
     assert False
 
