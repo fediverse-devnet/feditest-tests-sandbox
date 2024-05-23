@@ -119,7 +119,7 @@ examples/testplans/internal-all.json : \
 ########## and the rest ##########
 
 clean :
-	rm examples/{session-templates,constellations,testplans}/*.json
+	-rm examples/{session-templates,constellations,testplans}/*.json
 
 
 .PHONY : \

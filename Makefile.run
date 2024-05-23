@@ -85,7 +85,7 @@ examples/testresults/%.json : examples/testplans/%.json
 ########## and the rest ##########
 
 clean :
-	rm examples/testresults/*.{json,tap,html}
+	-rm examples/testresults/*.{json,tap,html}
 
 
 .PHONY : \
