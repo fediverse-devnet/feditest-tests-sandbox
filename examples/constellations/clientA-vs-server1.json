@@ -1,0 +1,13 @@
+{
+    "roles": {
+        "client": {
+            "nodedriver": "sandbox.SandboxMultClientDriver_ImplementationA",
+            "parameters": null
+        },
+        "server": {
+            "nodedriver": "sandbox.SandboxMultServerDriver_Implementation1",
+            "parameters": null
+        }
+    },
+    "name": "clientA vs server1"
+}

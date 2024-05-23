@@ -1,0 +1,497 @@
+{
+    "plan": {
+        "sessions": [
+            {
+                "constellation": {
+                    "roles": {},
+                    "name": "empty-for-internal-tests-only"
+                },
+                "tests": [
+                    {
+                        "name": "internal.exceptions::assertion_error",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.exceptions::attribute_error",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.exceptions::type_error",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.exceptions::value_error",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.feditest_assertion_raises::degrade",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.feditest_assertion_raises::hard",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.feditest_assertion_raises::skip",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.feditest_assertion_raises::soft",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.feditest_multistep_assertion_raises::Example",
+                        "rolemapping": null,
+                        "disabled": null
+                    },
+                    {
+                        "name": "internal.passes::passes",
+                        "rolemapping": null,
+                        "disabled": null
+                    }
+                ],
+                "name": null
+            }
+        ],
+        "name": "All internal tests"
+    },
+    "id": "feditest-run-2024-05-23T03:33:25.851589Z",
+    "started": "2024-05-23T03:33:25.859520Z",
+    "ended": "2024-05-23T03:33:25.863411Z",
+    "platform": "macOS-14.5-arm64-arm-64bit",
+    "username": "jernst",
+    "hostname": "blocketh.aviatis.com",
+    "sessions": [
+        {
+            "plan_session_index": 0,
+            "started": "2024-05-23T03:33:25.859584Z",
+            "ended": "2024-05-23T03:33:25.863409Z",
+            "constellation": {
+                "nodes": {}
+            },
+            "run_tests": [
+                {
+                    "plan_test_index": 0,
+                    "started": "2024-05-23T03:33:25.859634Z",
+                    "ended": "2024-05-23T03:33:25.859699Z",
+                    "result": {
+                        "type": "AssertionError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py",
+                                35
+                            ]
+                        ],
+                        "msg": ""
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 1,
+                    "started": "2024-05-23T03:33:25.861236Z",
+                    "ended": "2024-05-23T03:33:25.861254Z",
+                    "result": {
+                        "type": "AttributeError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py",
+                                18
+                            ]
+                        ],
+                        "msg": "'NoneType' object has no attribute 'b'"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 2,
+                    "started": "2024-05-23T03:33:25.861404Z",
+                    "ended": "2024-05-23T03:33:25.861416Z",
+                    "result": {
+                        "type": "TypeError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py",
+                                27
+                            ]
+                        ],
+                        "msg": "unsupported operand type(s) for +: 'NoneType' and 'int'"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 3,
+                    "started": "2024-05-23T03:33:25.861519Z",
+                    "ended": "2024-05-23T03:33:25.861528Z",
+                    "result": {
+                        "type": "ValueError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py",
+                                9
+                            ]
+                        ],
+                        "msg": "This test raises a ValueError."
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 4,
+                    "started": "2024-05-23T03:33:25.861608Z",
+                    "ended": "2024-05-23T03:33:25.861626Z",
+                    "result": {
+                        "type": "DegradeAssertionFailure",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py",
+                                25
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                253
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                192
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                210
+                            ]
+                        ],
+                        "msg": "This is degraded!"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 5,
+                    "started": "2024-05-23T03:33:25.862093Z",
+                    "ended": "2024-05-23T03:33:25.862112Z",
+                    "result": {
+                        "type": "HardAssertionFailure",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py",
+                                9
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                245
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                192
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                210
+                            ]
+                        ],
+                        "msg": "This was hard!"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 6,
+                    "started": "2024-05-23T03:33:25.862340Z",
+                    "ended": "2024-05-23T03:33:25.862351Z",
+                    "result": {
+                        "type": "SkipTestException",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py",
+                                33
+                            ]
+                        ],
+                        "msg": "We skipped this."
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 7,
+                    "started": "2024-05-23T03:33:25.862453Z",
+                    "ended": "2024-05-23T03:33:25.862467Z",
+                    "result": {
+                        "type": "SoftAssertionFailure",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py",
+                                17
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                249
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                192
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                210
+                            ]
+                        ],
+                        "msg": "This was soft!"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 8,
+                    "started": "2024-05-23T03:33:25.862639Z",
+                    "ended": "2024-05-23T03:33:25.863393Z",
+                    "result": null,
+                    "run_steps": [
+                        {
+                            "plan_step_index": 0,
+                            "started": "2024-05-23T03:33:25.862676Z",
+                            "ended": "2024-05-23T03:33:25.862684Z",
+                            "result": null
+                        },
+                        {
+                            "plan_step_index": 1,
+                            "started": "2024-05-23T03:33:25.862687Z",
+                            "ended": "2024-05-23T03:33:25.862692Z",
+                            "result": {
+                                "type": "SoftAssertionFailure",
+                                "stacktrace": [
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                        187
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_multistep_assertion_raises.py",
+                                        20
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        249
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        192
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        210
+                                    ]
+                                ],
+                                "msg": "That was soft!"
+                            }
+                        },
+                        {
+                            "plan_step_index": 2,
+                            "started": "2024-05-23T03:33:25.862977Z",
+                            "ended": "2024-05-23T03:33:25.862979Z",
+                            "result": null
+                        },
+                        {
+                            "plan_step_index": 3,
+                            "started": "2024-05-23T03:33:25.862980Z",
+                            "ended": "2024-05-23T03:33:25.862983Z",
+                            "result": {
+                                "type": "DegradeAssertionFailure",
+                                "stacktrace": [
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                        187
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_multistep_assertion_raises.py",
+                                        30
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        253
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        192
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        210
+                                    ]
+                                ],
+                                "msg": "We are degraded!"
+                            }
+                        },
+                        {
+                            "plan_step_index": 4,
+                            "started": "2024-05-23T03:33:25.863209Z",
+                            "ended": "2024-05-23T03:33:25.863214Z",
+                            "result": {
+                                "type": "HardAssertionFailure",
+                                "stacktrace": [
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                        187
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_multistep_assertion_raises.py",
+                                        35
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        245
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        192
+                                    ],
+                                    [
+                                        "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                        210
+                                    ]
+                                ],
+                                "msg": "That was hard!"
+                            }
+                        },
+                        {
+                            "plan_step_index": 5,
+                            "started": "2024-05-23T03:33:25.863390Z",
+                            "ended": "2024-05-23T03:33:25.863392Z",
+                            "result": null
+                        }
+                    ]
+                },
+                {
+                    "plan_test_index": 9,
+                    "started": "2024-05-23T03:33:25.863396Z",
+                    "ended": "2024-05-23T03:33:25.863405Z",
+                    "result": null,
+                    "run_steps": null
+                }
+            ],
+            "result": null
+        }
+    ],
+    "test_meta": {
+        "internal.exceptions::assertion_error": {
+            "name": "internal.exceptions::assertion_error",
+            "roles": [],
+            "steps": null,
+            "description": "This test fails a standard Python assertion."
+        },
+        "internal.exceptions::attribute_error": {
+            "name": "internal.exceptions::attribute_error",
+            "roles": [],
+            "steps": null,
+            "description": "This test always raises an AttributeError."
+        },
+        "internal.exceptions::type_error": {
+            "name": "internal.exceptions::type_error",
+            "roles": [],
+            "steps": null,
+            "description": "This test always raises a TypeError."
+        },
+        "internal.exceptions::value_error": {
+            "name": "internal.exceptions::value_error",
+            "roles": [],
+            "steps": null,
+            "description": "This test always raises a ValueError."
+        },
+        "internal.feditest_assertion_raises::degrade": {
+            "name": "internal.feditest_assertion_raises::degrade",
+            "roles": [],
+            "steps": null,
+            "description": "Always raises a DegradeAssertionFailure."
+        },
+        "internal.feditest_assertion_raises::hard": {
+            "name": "internal.feditest_assertion_raises::hard",
+            "roles": [],
+            "steps": null,
+            "description": "Always raises a HardAssertionFailure."
+        },
+        "internal.feditest_assertion_raises::skip": {
+            "name": "internal.feditest_assertion_raises::skip",
+            "roles": [],
+            "steps": null,
+            "description": "Always skips itself."
+        },
+        "internal.feditest_assertion_raises::soft": {
+            "name": "internal.feditest_assertion_raises::soft",
+            "roles": [],
+            "steps": null,
+            "description": "Always raises a SoftAssertionFailure."
+        },
+        "internal.feditest_multistep_assertion_raises::Example": {
+            "name": "internal.feditest_multistep_assertion_raises::Example",
+            "roles": [],
+            "steps": [
+                {
+                    "name": "internal.feditest_multistep_assertion_raises::Example.step1_pass",
+                    "description": null
+                },
+                {
+                    "name": "internal.feditest_multistep_assertion_raises::Example.step2_soft",
+                    "description": null
+                },
+                {
+                    "name": "internal.feditest_multistep_assertion_raises::Example.step3_pass",
+                    "description": null
+                },
+                {
+                    "name": "internal.feditest_multistep_assertion_raises::Example.step4_degrade",
+                    "description": null
+                },
+                {
+                    "name": "internal.feditest_multistep_assertion_raises::Example.step5_hard",
+                    "description": null
+                },
+                {
+                    "name": "internal.feditest_multistep_assertion_raises::Example.step6_pass",
+                    "description": null
+                }
+            ],
+            "description": "A multi-step test class that raises various failures in different steps."
+        },
+        "internal.passes::passes": {
+            "name": "internal.passes::passes",
+            "roles": [],
+            "steps": null,
+            "description": "This test always passes."
+        }
+    },
+    "result": null,
+    "type": "feditest-testrun-transcript",
+    "feditest_version": "0.0.2"
+}

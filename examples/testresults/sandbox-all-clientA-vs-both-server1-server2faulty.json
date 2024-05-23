@@ -1,0 +1,338 @@
+{
+    "plan": {
+        "sessions": [
+            {
+                "constellation": {
+                    "roles": {
+                        "client": {
+                            "nodedriver": "sandbox.SandboxMultClientDriver_ImplementationA",
+                            "parameters": null
+                        },
+                        "server": {
+                            "nodedriver": "sandbox.SandboxMultServerDriver_Implementation1",
+                            "parameters": null
+                        }
+                    },
+                    "name": "clientA vs server1"
+                },
+                "tests": [
+                    {
+                        "name": "sandbox.example_test_with_classes::ExampleTest1",
+                        "rolemapping": {
+                            "client": "client",
+                            "server": "server"
+                        },
+                        "disabled": null
+                    },
+                    {
+                        "name": "sandbox.example_test_with_functions::example_test1",
+                        "rolemapping": {
+                            "client": "client",
+                            "server": "server"
+                        },
+                        "disabled": null
+                    },
+                    {
+                        "name": "sandbox.example_test_with_functions::example_test2",
+                        "rolemapping": {
+                            "customer": "customer",
+                            "calculator": "calculator"
+                        },
+                        "disabled": null
+                    },
+                    {
+                        "name": "sandbox.example_test_with_functions::example_test3",
+                        "rolemapping": {
+                            "client": "client",
+                            "server": "server"
+                        },
+                        "disabled": null
+                    }
+                ],
+                "name": null
+            },
+            {
+                "constellation": {
+                    "roles": {
+                        "client": {
+                            "nodedriver": "sandbox.SandboxMultClientDriver_ImplementationA",
+                            "parameters": null
+                        },
+                        "server": {
+                            "nodedriver": "sandbox.SandboxMultServerDriver_Implementation2Faulty",
+                            "parameters": null
+                        }
+                    },
+                    "name": "clientA vs server2faulty"
+                },
+                "tests": [
+                    {
+                        "name": "sandbox.example_test_with_classes::ExampleTest1",
+                        "rolemapping": {
+                            "client": "client",
+                            "server": "server"
+                        },
+                        "disabled": null
+                    },
+                    {
+                        "name": "sandbox.example_test_with_functions::example_test1",
+                        "rolemapping": {
+                            "client": "client",
+                            "server": "server"
+                        },
+                        "disabled": null
+                    },
+                    {
+                        "name": "sandbox.example_test_with_functions::example_test2",
+                        "rolemapping": {
+                            "customer": "customer",
+                            "calculator": "calculator"
+                        },
+                        "disabled": null
+                    },
+                    {
+                        "name": "sandbox.example_test_with_functions::example_test3",
+                        "rolemapping": {
+                            "client": "client",
+                            "server": "server"
+                        },
+                        "disabled": null
+                    }
+                ],
+                "name": null
+            }
+        ],
+        "name": "All sandbox tests running clientA against both server1 and then faulty server2"
+    },
+    "id": "feditest-run-2024-05-23T03:33:24.534933Z",
+    "started": "2024-05-23T03:33:24.542824Z",
+    "ended": "2024-05-23T03:33:24.544919Z",
+    "platform": "macOS-14.5-arm64-arm-64bit",
+    "username": "jernst",
+    "hostname": "blocketh.aviatis.com",
+    "sessions": [
+        {
+            "plan_session_index": 0,
+            "started": "2024-05-23T03:33:24.542931Z",
+            "ended": "2024-05-23T03:33:24.544228Z",
+            "constellation": {
+                "nodes": {
+                    "client": {
+                        "appdata": {
+                            "app": "SandboxMultClient_ImplementationA",
+                            "app_version": "0.0.2"
+                        }
+                    },
+                    "server": {
+                        "appdata": {
+                            "app": "SandboxMultServer_Implementation1",
+                            "app_version": "0.0.2"
+                        }
+                    }
+                }
+            },
+            "run_tests": [
+                {
+                    "plan_test_index": 0,
+                    "started": "2024-05-23T03:33:24.543010Z",
+                    "ended": "2024-05-23T03:33:24.543269Z",
+                    "result": {
+                        "type": "TypeError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                222
+                            ]
+                        ],
+                        "msg": "ExampleTest1.__init__() missing 2 required positional arguments: 'client' and 'server'"
+                    },
+                    "run_steps": []
+                },
+                {
+                    "plan_test_index": 1,
+                    "started": "2024-05-23T03:33:24.543760Z",
+                    "ended": "2024-05-23T03:33:24.543817Z",
+                    "result": null,
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 2,
+                    "started": "2024-05-23T03:33:24.543821Z",
+                    "ended": "2024-05-23T03:33:24.543834Z",
+                    "result": {
+                        "type": "AttributeError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/sandbox/example_test_with_functions.py",
+                                55
+                            ]
+                        ],
+                        "msg": "'NoneType' object has no attribute 'cause_mult'"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 3,
+                    "started": "2024-05-23T03:33:24.544203Z",
+                    "ended": "2024-05-23T03:33:24.544220Z",
+                    "result": null,
+                    "run_steps": null
+                }
+            ],
+            "result": null
+        },
+        {
+            "plan_session_index": 1,
+            "started": "2024-05-23T03:33:24.544231Z",
+            "ended": "2024-05-23T03:33:24.544915Z",
+            "constellation": {
+                "nodes": {
+                    "client": {
+                        "appdata": {
+                            "app": "SandboxMultClient_ImplementationA",
+                            "app_version": "0.0.2"
+                        }
+                    },
+                    "server": {
+                        "appdata": {
+                            "app": "SandboxMultServer_Implementation2Faulty",
+                            "app_version": "0.0.2"
+                        }
+                    }
+                }
+            },
+            "run_tests": [
+                {
+                    "plan_test_index": 0,
+                    "started": "2024-05-23T03:33:24.544242Z",
+                    "ended": "2024-05-23T03:33:24.544262Z",
+                    "result": {
+                        "type": "TypeError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                222
+                            ]
+                        ],
+                        "msg": "ExampleTest1.__init__() missing 2 required positional arguments: 'client' and 'server'"
+                    },
+                    "run_steps": []
+                },
+                {
+                    "plan_test_index": 1,
+                    "started": "2024-05-23T03:33:24.544336Z",
+                    "ended": "2024-05-23T03:33:24.544356Z",
+                    "result": null,
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 2,
+                    "started": "2024-05-23T03:33:24.544358Z",
+                    "ended": "2024-05-23T03:33:24.544367Z",
+                    "result": {
+                        "type": "AttributeError",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/sandbox/example_test_with_functions.py",
+                                55
+                            ]
+                        ],
+                        "msg": "'NoneType' object has no attribute 'cause_mult'"
+                    },
+                    "run_steps": null
+                },
+                {
+                    "plan_test_index": 3,
+                    "started": "2024-05-23T03:33:24.544634Z",
+                    "ended": "2024-05-23T03:33:24.544678Z",
+                    "result": {
+                        "type": "HardAssertionFailure",
+                        "stacktrace": [
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py",
+                                158
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/sandbox/example_test_with_functions.py",
+                                73
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                245
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                188
+                            ],
+                            [
+                                "/Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py",
+                                203
+                            ]
+                        ],
+                        "msg": "\nExpected: <-56>\n     but: was <0.0>\n"
+                    },
+                    "run_steps": null
+                }
+            ],
+            "result": null
+        }
+    ],
+    "test_meta": {
+        "sandbox.example_test_with_classes::ExampleTest1": {
+            "name": "sandbox.example_test_with_classes::ExampleTest1",
+            "roles": [
+                "server",
+                "client"
+            ],
+            "steps": [
+                {
+                    "name": "sandbox.example_test_with_classes::ExampleTest1.step1",
+                    "description": null
+                },
+                {
+                    "name": "sandbox.example_test_with_classes::ExampleTest1.step2",
+                    "description": null
+                }
+            ],
+            "description": "Tests the sandbox toy protocol using a FedTest test class."
+        },
+        "sandbox.example_test_with_functions::example_test1": {
+            "name": "sandbox.example_test_with_functions::example_test1",
+            "roles": [
+                "server",
+                "client"
+            ],
+            "steps": null,
+            "description": "Tests the sandbox toy protocol using a FedTest test function with hard asserts."
+        },
+        "sandbox.example_test_with_functions::example_test2": {
+            "name": "sandbox.example_test_with_functions::example_test2",
+            "roles": [
+                "calculator",
+                "customer"
+            ],
+            "steps": null,
+            "description": "Tests the sandbox toy protocol using a FedTest test function with hard asserts."
+        },
+        "sandbox.example_test_with_functions::example_test3": {
+            "name": "sandbox.example_test_with_functions::example_test3",
+            "roles": [
+                "server",
+                "client"
+            ],
+            "steps": null,
+            "description": "Tests the sandbox toy protocol using a FedTest test function."
+        }
+    },
+    "result": null,
+    "type": "feditest-testrun-transcript",
+    "feditest_version": "0.0.2"
+}

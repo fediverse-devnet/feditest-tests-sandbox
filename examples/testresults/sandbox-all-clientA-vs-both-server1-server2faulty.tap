@@ -1,0 +1,85 @@
+TAP version 14
+# test plan: All sandbox tests running clientA against both server1 and then faulty server2
+# started: 2024-05-23 03:33:24.542824+00:00
+# ended: 2024-05-23 03:33:24.544919+00:00
+# platform: macOS-14.5-arm64-arm-64bit
+# username: jernst
+# hostname: blocketh.aviatis.com
+# session: Unnamed
+# constellation: clientA vs server1
+#   roles:
+#     - name: client
+#       driver: sandbox.SandboxMultClientDriver_ImplementationA
+#       app: SandboxMultClient_ImplementationA
+#       app_version: 0.0.2
+#     - name: server
+#       driver: sandbox.SandboxMultServerDriver_Implementation1
+#       app: SandboxMultServer_Implementation1
+#       app_version: 0.0.2
+not ok 1 - sandbox.example_test_with_classes::ExampleTest1
+  ---
+  problem: TypeError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 222
+  ...
+ok 2 - sandbox.example_test_with_functions::example_test1
+not ok 3 - sandbox.example_test_with_functions::example_test2
+  ---
+  problem: AttributeError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/sandbox/example_test_with_functions.py 55
+  ...
+ok 4 - sandbox.example_test_with_functions::example_test3
+# session: Unnamed
+# constellation: clientA vs server2faulty
+#   roles:
+#     - name: client
+#       driver: sandbox.SandboxMultClientDriver_ImplementationA
+#       app: SandboxMultClient_ImplementationA
+#       app_version: 0.0.2
+#     - name: server
+#       driver: sandbox.SandboxMultServerDriver_Implementation2Faulty
+#       app: SandboxMultServer_Implementation2Faulty
+#       app_version: 0.0.2
+not ok 5 - sandbox.example_test_with_classes::ExampleTest1
+  ---
+  problem: TypeError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 222
+  ...
+ok 6 - sandbox.example_test_with_functions::example_test1
+not ok 7 - sandbox.example_test_with_functions::example_test2
+  ---
+  problem: AttributeError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/sandbox/example_test_with_functions.py 55
+  ...
+not ok 8 - sandbox.example_test_with_functions::example_test3
+  ---
+  problem: HardAssertionFailure
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/sandbox/example_test_with_functions.py 73
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 245
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 188
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 203
+  ...
+1..8
+# test run summary:
+#   total: 8
+#   passed: 3
+#   failed: 1
+#   skipped: 0
+#   errors: 4

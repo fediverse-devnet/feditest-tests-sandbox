@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feditest Test Report</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        >
+        <style>
+:root {
+    --pico-font-size: 100%;
+    --feditest-color-passed: #00c000;
+    --feditest-color-failed: #c00000;
+    --feditest-color-skipped: var(--pico-color);
+    --feditest-color-errored: #c08000;
+}
+
+body {
+    padding: 2rem;
+    background: #f8f8f8;
+}
+
+footer {
+    font-size: smaller;
+}
+
+h1 {
+    text-align: center;
+}
+
+div.feditest.module {
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    margin: 0 0 2rem 0;
+    padding: 2rem;
+}
+
+div.feditest.module.summary {
+    box-shadow: 0px 0px 5px #808080;
+}
+
+div.feditest.module.results {
+    box-shadow: 0px 0px 5px #808080;
+}
+
+div.feditest.session {
+    margin-bottom: 2rem;
+}
+
+div.feditest.session > h3 {
+    font-weight: bold;
+    color: lightblue;
+}
+
+div.feditest.session > h3::before {
+    content: "Session: ";
+}
+
+.feditest div.constellation > h4::before {
+    content: "Constellation: ";
+}
+
+.feditest div.roles {
+    display: flex;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.feditest div.role {
+    width: 30rem;
+    border: 1px solid;
+    padding: 1rem;
+    border-color: var(--pico-table-border-color);
+}
+
+.feditest div.role > div.name {
+    font-weight: bold;
+
+}
+
+.feditest div.role > div.name::before {
+    content: "Role: ";
+}
+
+.feditest div.role > div.driver::before {
+    content: "Node Driver: ";
+}
+
+.feditest div.role > div.app::before {
+    content: "App: ";
+}
+
+.feditest div.role > div.appversion::before {
+    content: "App version: ";
+}
+
+.feditest .status  { /* catch-all for everything else */
+    color: var(--feditest-color-errored);
+}
+
+.feditest .status.passed {
+    color: var(--feditest-color-passed);
+}
+
+.feditest .status.failed {
+        color: var(--feditest-color-failed);
+}
+
+.feditest .status.skipped {
+    color: var(--feditest-color-skipped);
+}
+
+.feditest .status.errored {
+    color: var(--feditest-color-errored);
+}
+
+.feditest .status.failed.HardAssertionFailure,
+.feditest .status.failed.SoftAssertionFailure,
+.feditest .status.failed.DegradeAssertionFailure {
+    color: var(--feditest-color-failed);
+}
+
+.feditest .status input {
+    display: none;
+}
+
+.feditest pre.details {
+    display: none;
+    padding: 0.2rem;
+}
+
+.feditest input:checked + pre.details {
+    display: block;
+}
+
+.feditest .status label {
+    color: inherit;
+}
+
+.feditest .status label::after {
+    content: " ▼";
+    color: inherit;
+}
+div.feditest.tests {
+    overflow: auto;
+    position: relative;
+}
+div.feditest.tests div.roles dd {
+    font-weight: normal;
+}
+
+div.feditest.tests .namedesc > span {
+    display: block;
+}
+div.feditest.tests .namedesc > span.name {
+    font-weight: bold;
+}
+
+.feditest .role > table.parameters {
+    font-size: 0.8rem;
+}
+
+.feditest dl.roles {
+    display: grid;
+    grid-template-columns: auto auto;
+    font-size: 70%;
+}
+
+.feditest dl.roles dt::after {
+    content: ": ";
+}
+
+.feditest dl.roles dd {
+    margin-left: 0;
+    font-weight: normal;
+}
+
+.feditest table.tests {
+    overflow: scroll;
+    border-collapse: collapse;
+}
+
+.feditest table.tests td:first-child,
+.feditest table.tests th:first-child {
+    position: sticky;
+    left: 0;
+}
+
+.feditest table.tests col.session {
+    border: 2px solid var(--pico-contast);
+}
+        </style>
+    </head>
+    <body>
+        <h1><a href="https://feditest.org/">Feditest</a> Report: feditest-run-2024-05-23T03:33:25.851589Z (All internal tests)</h1>
+        <div class="feditest module summary">
+            <h2>Test Run Summary</h2>
+    <table class="feditest summary">
+       <thead>
+            <tr>
+                <th>Status</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Passed</th>
+                <td class="passed">1</td>
+            </tr>
+            <tr>
+                <th>Failed</th>
+                <td><span class="failed">4</span> (hard: 2, soft: 1, degrade: 1)</td>
+            </tr>
+            <tr>
+                <th>Skipped</th>
+                <td class="skipped">1</td>
+            </tr>
+            <tr>
+                <th>Errors</th>
+                <td class="errored">4</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <td>10</td>
+            </tr>
+        </tfoot>
+    </table>
+        </div>
+        <div class="feditest module results">
+
+            <h2>Test Results</h2>
+    <div class="feditest tests">
+        <table class="tests">
+            <colgroup>
+                <col>
+                <col class="session">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Test (alphabetical order)</th>
+                    <th>
+                        <div class="title"><a href="#Session_0">Session 0</a>: empty-for-internal-tests-only</div>
+                        <dl class="roles">
+                        </dl>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.exceptions::assertion_error</span>
+                        <span class="description">This test fails a standard Python assertion.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed AssertionError">
+    <label for="details-result-0-0">Failed</label>
+    <input id="details-result-0-0" type="checkbox">
+    <pre class="details"></pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.exceptions::attribute_error</span>
+                        <span class="description">This test always raises an AttributeError.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed AttributeError">
+    <label for="details-result-0-1">Failed</label>
+    <input id="details-result-0-1" type="checkbox">
+    <pre class="details">'NoneType' object has no attribute 'b'</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.exceptions::type_error</span>
+                        <span class="description">This test always raises a TypeError.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed TypeError">
+    <label for="details-result-0-2">Failed</label>
+    <input id="details-result-0-2" type="checkbox">
+    <pre class="details">unsupported operand type(s) for +: 'NoneType' and 'int'</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.exceptions::value_error</span>
+                        <span class="description">This test always raises a ValueError.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed ValueError">
+    <label for="details-result-0-3">Failed</label>
+    <input id="details-result-0-3" type="checkbox">
+    <pre class="details">This test raises a ValueError.</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.feditest_assertion_raises::degrade</span>
+                        <span class="description">Always raises a DegradeAssertionFailure.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed DegradeAssertionFailure">
+    <label for="details-result-0-4">Failed</label>
+    <input id="details-result-0-4" type="checkbox">
+    <pre class="details">This is degraded!</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.feditest_assertion_raises::hard</span>
+                        <span class="description">Always raises a HardAssertionFailure.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed HardAssertionFailure">
+    <label for="details-result-0-5">Failed</label>
+    <input id="details-result-0-5" type="checkbox">
+    <pre class="details">This was hard!</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.feditest_assertion_raises::skip</span>
+                        <span class="description">Always skips itself.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed SkipTestException">
+    <label for="details-result-0-6">Failed</label>
+    <input id="details-result-0-6" type="checkbox">
+    <pre class="details">We skipped this.</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.feditest_assertion_raises::soft</span>
+                        <span class="description">Always raises a SoftAssertionFailure.</span>
+                    </td>
+                    <td class="status">
+<div class="status failed SoftAssertionFailure">
+    <label for="details-result-0-7">Failed</label>
+    <input id="details-result-0-7" type="checkbox">
+    <pre class="details">This was soft!</pre>
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.feditest_multistep_assertion_raises::Example</span>
+                        <span class="description">A multi-step test class that raises various failures in different steps.</span>
+                    </td>
+                    <td class="status">
+<div class="status passed">
+    Passed
+</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="namedesc">
+                        <span class="name">internal.passes::passes</span>
+                        <span class="description">This test always passes.</span>
+                    </td>
+                    <td class="status">
+<div class="status passed">
+    Passed
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        </div>
+        <div class="feditest module session-details">
+            <h2>Session Details</h2>
+
+    <div class="feditest sessions">
+        <div class="session" id="Session_0">
+            <h3 class="session">Session 0: empty-for-internal-tests-only</h3>
+            <div class="constellation">
+                <div class="roles">
+                (no roles)
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+        <div class="feditest module metadata">
+            <h2>Test Run Metadata</h2>
+<div class="feditest metadata">
+    <table>
+        <tbody>
+            <tr>
+                <th>Started</th>
+                <td>2024-05-23 03:33:25.859520+00:00</td>
+            </tr><tr>
+                <th>Ended</th>
+                <td>2024-05-23 03:33:25.863411+00:00</td>
+            </tr><tr>
+                <th>Username</th>
+                <td>jernst</td>
+            </tr><tr>
+                <th>Hostname</th>
+                <td>blocketh.aviatis.com</td>
+            </tr><tr>
+                <th>Platform</th>
+                <td>macOS-14.5-arm64-arm-64bit</td>
+            </tr>
+            <tr>
+                <th>Feditest&nbsp;version</th>
+                <td>0.0.2</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+        </div>
+    <footer>
+        <p>Note: No guarantees are made about accuracy of results created with <a href="https://feditest.org/">FediTest</a>.
+           <a href="https://github.com/fediverse-devnet/feditest/">Issues and merge requests</a> welcome.</p>
+    </footer>
+    </body>
+</html>

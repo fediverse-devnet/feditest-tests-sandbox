@@ -1,0 +1,100 @@
+TAP version 14
+# test plan: All internal tests
+# started: 2024-05-23 03:33:25.859520+00:00
+# ended: 2024-05-23 03:33:25.863411+00:00
+# platform: macOS-14.5-arm64-arm-64bit
+# username: jernst
+# hostname: blocketh.aviatis.com
+# session: Unnamed
+# constellation: empty-for-internal-tests-only
+#   roles:
+not ok 1 - internal.exceptions::assertion_error
+  ---
+  problem: AssertionError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py 35
+  ...
+not ok 2 - internal.exceptions::attribute_error
+  ---
+  problem: AttributeError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py 18
+  ...
+not ok 3 - internal.exceptions::type_error
+  ---
+  problem: TypeError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py 27
+  ...
+not ok 4 - internal.exceptions::value_error
+  ---
+  problem: ValueError
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/exceptions.py 9
+  ...
+not ok 5 - internal.feditest_assertion_raises::degrade
+  ---
+  problem: DegradeAssertionFailure
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py 25
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 253
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 192
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 210
+  ...
+not ok 6 - internal.feditest_assertion_raises::hard
+  ---
+  problem: HardAssertionFailure
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py 9
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 245
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 192
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 210
+  ...
+not ok 7 - internal.feditest_assertion_raises::skip
+  ---
+  problem: SkipTestException
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py 33
+  ...
+not ok 8 - internal.feditest_assertion_raises::soft
+  ---
+  problem: SoftAssertionFailure
+  message:
+    Failed
+  where:
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/testrun.py 158
+    /Users/jernst/git/github.com/jernst/feditest-tests-sandbox/tests/internal/feditest_assertion_raises.py 17
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 249
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 192
+    /Users/jernst/git/github.com/jernst/feditest/venv.darwin/lib/python3.12/site-packages/feditest/__init__.py 210
+  ...
+ok 9 - internal.feditest_multistep_assertion_raises::Example
+ok 10 - internal.passes::passes
+1..10
+# test run summary:
+#   total: 10
+#   passed: 1
+#   failed: 4
+#   skipped: 1
+#   errors: 4
