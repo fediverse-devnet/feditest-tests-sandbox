@@ -1,0 +1,95 @@
+#
+# This Makefile runs certain test plans
+#
+# This attempt to run executable `feditest` in your $PATH. If you'd like
+# to run a different executable, such as one in a virtual environment,
+# invoke this Makefile with extra parameter FEDITEST=path/to/my/feditest
+#
+
+FEDITEST=feditest
+
+SANDBOX_TESTPLANS= \
+  sandbox-all-clientA-vs-server1 \
+  sandbox-all-clientA-vs-server2faulty \
+  sandbox-all-clientA-vs-both-server1-server2faulty
+
+INTERNAL_TESTPLANS= \
+  internal-all
+
+default : sandbox
+
+all : \
+  sandbox \
+  internal
+
+sandbox : \
+  sandbox-transcripts \
+  sandbox-transcripts-tap \
+  sandbox-transcripts-html
+
+sandbox-transcripts : \
+  $(patsubst %, examples/testresults/%.json, $(SANDBOX_TESTPLANS))
+
+sandbox-transcripts-tap : \
+  $(patsubst %, examples/testresults/%.tap, $(SANDBOX_TESTPLANS))
+
+sandbox-transcripts-html : \
+  $(patsubst %, examples/testresults/%.sequential.html, $(SANDBOX_TESTPLANS)) \
+  $(patsubst %, examples/testresults/%.testmatrix.html, $(SANDBOX_TESTPLANS))
+
+internal : \
+  internal-transcripts \
+  internal-transcripts-tap \
+  internal-transcripts-html
+
+internal-transcripts : \
+  $(patsubst %, examples/testresults/%.json, $(INTERNAL_TESTPLANS))
+
+internal-transcripts-tap : \
+  $(patsubst %, examples/testresults/%.tap, $(INTERNAL_TESTPLANS))
+
+internal-transcripts-html : \
+  $(patsubst %, examples/testresults/%.sequential.html, $(INTERNAL_TESTPLANS)) \
+  $(patsubst %, examples/testresults/%.testmatrix.html, $(INTERNAL_TESTPLANS))
+
+
+########## General rules to make things simpler ##########
+
+# Given a testplan in examples/testplans, run it and generate a testrun JSON transcript in examples/testresults with the same name
+examples/testresults/%.json : examples/testplans/%.json
+	$(FEDITEST) run \
+		--testplan $< \
+		--json $@ \
+	|| echo 'ERRORS in the test run (as expected), so we continue'
+
+# Given a testrun JSON transcript, convert it to TAP format
+%.tap : %.json
+	$(FEDITEST) convert-transcript \
+		--in $< \
+		--tap $@
+
+# Given a testrun JSON transcript, convert it to HTML format with a template that lists everything that happened in sequential order
+%.sequential.html : %.json
+	$(FEDITEST) convert-transcript \
+		--in $< \
+		--html $@ \
+		--template testrun-report-sequential-standalone
+
+# Given a testrun JSON transcript, convert it to HTML format with a template that creates a test matrix
+%.testmatrix.html : %.json
+	$(FEDITEST) convert-transcript \
+		--in $< \
+		--html $@ \
+		--template testrun-report-testmatrix-standalone
+
+########## and the rest ##########
+
+clean :
+	-rm examples/testresults/*.{json,tap,html}
+
+
+.PHONY : \
+  default all clean \
+  sandbox sandbox-transcript sandbox-transcripts-tap sandbox-transcripts-html \
+  internal internal-transcript internal-transcripts-tap internal-transcripts-html
+
