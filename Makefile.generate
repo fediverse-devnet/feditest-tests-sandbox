@@ -1,0 +1,128 @@
+#
+# This Makefile regenerates session template files and test plan files.
+# The generated files are also checked-in, so new users can get started quickly.
+#
+# This attempt to run executable `feditest` in your $PATH. If you'd like
+# to run a different executable, such as one in a virtual environment,
+# invoke this Makefile with extra parameter FEDITEST=path/to/my/feditest
+#
+
+FEDITEST=feditest
+
+default : all
+
+all : examples
+
+examples : \
+  examples-session-templates \
+  examples-constellations \
+  examples-testplans
+
+
+########## Example session templates ##########
+
+examples-session-templates : \
+  examples/session-templates/sandbox-all.json \
+  examples/session-templates/internal-all.json
+
+examples/session-templates/sandbox-all.json : \
+  tests/sandbox/*.py
+	$(FEDITEST) generate-session-template \
+		--name 'All sandbox tests' \
+		--filter 'sandbox' \
+		--out $@
+
+examples/session-templates/internal-all.json : \
+  tests/internal/*.py
+	$(FEDITEST) generate-session-template \
+		--name 'Internal all' \
+		--filter 'internal' \
+		--out $@
+
+
+##### Example constellations ##########
+
+examples-constellations : \
+  examples/constellations/clientA-vs-server1.json \
+  examples/constellations/clientA-vs-server2faulty.json \
+  examples/constellations/degenerate-empty.json
+
+examples/constellations/clientA-vs-server1.json : \
+  examples/nodes/clientA.json \
+  examples/nodes/server1.json
+	$(FEDITEST) create-constellation \
+		--name 'clientA vs server1' \
+		--node client=examples/nodes/clientA.json \
+		--node server=examples/nodes/server1.json \
+		--out $@
+
+examples/constellations/clientA-vs-server2faulty.json : \
+  examples/nodes/clientA.json \
+  examples/nodes/server2faulty.json
+	$(FEDITEST) create-constellation \
+		--name 'clientA vs server2faulty' \
+		--node client=examples/nodes/clientA.json \
+		--node server=examples/nodes/server2faulty.json \
+		--out $@
+
+examples/constellations/degenerate-empty.json :
+	echo '{\n    "name" : "empty-for-internal-tests-only",\n    "roles" : {}\n}' > $@
+
+
+#### Example test plans ##########
+
+examples-testplans : \
+  examples/testplans/sandbox-all-clientA-vs-server1.json \
+  examples/testplans/sandbox-all-clientA-vs-server2faulty.json \
+  examples/testplans/sandbox-all-clientA-vs-both-server1-server2faulty.json \
+  examples/testplans/internal-all.json
+
+examples/testplans/sandbox-all-clientA-vs-server1.json : \
+  examples/session-templates/sandbox-all.json \
+  examples/constellations/clientA-vs-server1.json
+	$(FEDITEST) generate-testplan \
+		--name 'All sandbox tests running clientA against server1' \
+		--session-template examples/session-templates/sandbox-all.json \
+		--constellation examples/constellations/clientA-vs-server1.json \
+		--out $@
+
+examples/testplans/sandbox-all-clientA-vs-server2faulty.json : \
+  examples/session-templates/sandbox-all.json \
+  examples/constellations/clientA-vs-server2faulty.json
+	$(FEDITEST) generate-testplan \
+		--name 'All sandbox tests running clientA against faulty server2' \
+		--session-template examples/session-templates/sandbox-all.json \
+		--constellation examples/constellations/clientA-vs-server2faulty.json \
+		--out $@
+
+examples/testplans/sandbox-all-clientA-vs-both-server1-server2faulty.json : \
+  examples/session-templates/sandbox-all.json \
+  examples/constellations/clientA-vs-server1.json \
+  examples/constellations/clientA-vs-server2faulty.json
+	$(FEDITEST) generate-testplan \
+		--name 'All sandbox tests running clientA against both server1 and then faulty server2' \
+		--session-template examples/session-templates/sandbox-all.json \
+		--constellation examples/constellations/clientA-vs-server1.json examples/constellations/clientA-vs-server2faulty.json \
+		--out $@
+
+
+examples/testplans/internal-all.json : \
+  examples/session-templates/internal-all.json \
+  examples/constellations/degenerate-empty.json
+	$(FEDITEST) generate-testplan \
+		--name 'All internal tests' \
+		--session-template examples/session-templates/internal-all.json \
+		--constellation examples/constellations/degenerate-empty.json \
+		--out $@
+
+
+########## and the rest ##########
+
+clean :
+	rm examples/{session-templates,constellations,testplans}/*.json
+
+
+.PHONY : \
+  default all clean \
+  examples examples-session-templates examples-constellations examples-testplans
+
