@@ -1,10 +1,8 @@
 {
     "constellation": {
         "roles": {
-            "client": null,
             "server": null,
-            "customer": null,
-            "calculator": null
+            "client": null
         },
         "name": null
     },
@@ -12,32 +10,32 @@
         {
             "name": "sandbox.example_test_with_classes::ExampleTest1",
             "rolemapping": {
-                "client": "client",
-                "server": "server"
+                "server": "server",
+                "client": "client"
             },
             "disabled": null
         },
         {
             "name": "sandbox.example_test_with_functions::example_test1",
             "rolemapping": {
-                "client": "client",
-                "server": "server"
+                "server": "server",
+                "client": "client"
             },
             "disabled": null
         },
         {
             "name": "sandbox.example_test_with_functions::example_test2",
             "rolemapping": {
-                "customer": "customer",
-                "calculator": "calculator"
+                "server": "server",
+                "client": "client"
             },
             "disabled": null
         },
         {
             "name": "sandbox.example_test_with_functions::example_test3",
             "rolemapping": {
-                "client": "client",
-                "server": "server"
+                "server": "server",
+                "client": "client"
             },
             "disabled": null
         }
