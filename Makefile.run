@@ -16,7 +16,7 @@ SANDBOX_TESTPLANS= \
 INTERNAL_TESTPLANS= \
   internal-all
 
-default : sandbox
+default : clean sandbox
 
 all : \
   sandbox \
@@ -85,7 +85,7 @@ examples/testresults/%.json : examples/testplans/%.json
 ########## and the rest ##########
 
 clean :
-	-rm examples/testresults/*.{json,tap,html}
+	-rm examples/testresults/*.{json,tap,html} >/dev/null 2>&1
 
 
 .PHONY : \

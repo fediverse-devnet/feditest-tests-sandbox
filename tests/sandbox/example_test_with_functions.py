@@ -22,7 +22,7 @@ def example_test1(
         server: SandboxMultServer
 ) -> None:
     """
-    Tests the sandbox toy protocol using a FedTest test function with hard asserts.
+    Tests the sandbox toy protocol using a FediTest test function with hard asserts.
     """
     a : float = 2
     b : int = 7
@@ -43,8 +43,8 @@ def example_test1(
 
 @test
 def example_test2(
-        customer: SandboxMultClient,
-        calculator: SandboxMultServer
+        client: SandboxMultClient,
+        server: SandboxMultServer
 ) -> None:
     """
     Tests the sandbox toy protocol using a FedTest test function with hard asserts.
@@ -52,9 +52,9 @@ def example_test2(
     a : float = 2.1
     b : int = 7
 
-    c : float = customer.cause_mult(calculator, a, b)
+    c : float = client.cause_mult(server, a, b)
 
-    soft_assert_that(c, equal_to(14.0))
+    soft_assert_that(c, close_to(14.7, 0.01))
 
 
 @test

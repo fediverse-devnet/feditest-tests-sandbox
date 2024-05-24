@@ -25,7 +25,7 @@ from feditest.protocols.sandbox import SandboxLogEvent, SandboxMultClient, Sandb
 @test
 class ExampleTest1:
     """
-    Tests the sandbox toy protocol using a FedTest test class.
+    Tests the sandbox toy protocol using a FediTest test class.
     """
     def __init__(self,
         client: SandboxMultClient,
@@ -48,8 +48,7 @@ class ExampleTest1:
 
         self.c : float = self.client.cause_mult(self.server, self.a, self.b)
 
-        soft_assert_that(self.c, equal_to(14.0))
-        hard_assert_that(self.c, close_to(14.0, 0.5))
+        hard_assert_that(self.c, close_to(15.0, 0.5))
 
         log: List[SandboxLogEvent] = self.server.get_and_clear_log()
 
@@ -58,11 +57,10 @@ class ExampleTest1:
         hard_assert_that(log[0].b, equal_to(self.b))
         hard_assert_that(log[0].c, equal_to(self.c))
 
-
     @step
     def step2(self):
 
         c_squared = self.client.cause_mult(self.server, self.c, self.c)
 
-        soft_assert_that(c_squared, equal_to(self.c * self.c))
+        soft_assert_that(c_squared, close_to(self.c * self.c, 0.001))
         hard_assert_that(c_squared, close_to(self.c * self.c, 0.5))
