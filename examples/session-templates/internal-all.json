@@ -50,6 +50,26 @@
             "skip": null
         },
         {
+            "name": "internal.not_implemented::node_specification_insufficient_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::node_specification_invalid_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::not_implemented_by_node_driver_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::not_implemented_by_node_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
             "name": "internal.passes::passes",
             "rolemapping": null,
             "skip": null
