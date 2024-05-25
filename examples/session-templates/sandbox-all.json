@@ -13,7 +13,7 @@
                 "server": "server",
                 "client": "client"
             },
-            "disabled": null
+            "skip": null
         },
         {
             "name": "sandbox.example_test_with_functions::example_test1",
@@ -21,7 +21,7 @@
                 "server": "server",
                 "client": "client"
             },
-            "disabled": null
+            "skip": null
         },
         {
             "name": "sandbox.example_test_with_functions::example_test2",
@@ -29,7 +29,7 @@
                 "server": "server",
                 "client": "client"
             },
-            "disabled": null
+            "skip": null
         },
         {
             "name": "sandbox.example_test_with_functions::example_test3",
@@ -37,7 +37,7 @@
                 "server": "server",
                 "client": "client"
             },
-            "disabled": null
+            "skip": null
         }
     ],
     "name": "All sandbox tests"
