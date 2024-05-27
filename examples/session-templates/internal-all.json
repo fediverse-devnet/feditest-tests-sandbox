@@ -7,52 +7,72 @@
         {
             "name": "internal.exceptions::assertion_error",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.exceptions::attribute_error",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.exceptions::type_error",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.exceptions::value_error",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.feditest_assertion_raises::degrade",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.feditest_assertion_raises::hard",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.feditest_assertion_raises::skip",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.feditest_assertion_raises::soft",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         },
         {
             "name": "internal.feditest_multistep_assertion_raises::Example",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::node_specification_insufficient_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::node_specification_invalid_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::not_implemented_by_node_driver_error",
+            "rolemapping": null,
+            "skip": null
+        },
+        {
+            "name": "internal.not_implemented::not_implemented_by_node_error",
+            "rolemapping": null,
+            "skip": null
         },
         {
             "name": "internal.passes::passes",
             "rolemapping": null,
-            "disabled": null
+            "skip": null
         }
     ],
     "name": "Internal all"
