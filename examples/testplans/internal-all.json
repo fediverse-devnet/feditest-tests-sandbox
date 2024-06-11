@@ -27,12 +27,92 @@
                     "skip": null
                 },
                 {
-                    "name": "internal.feditest_assertion_raises::degrade",
+                    "name": "internal.feditest_assertion_raises::default",
                     "rolemapping": null,
                     "skip": null
                 },
                 {
-                    "name": "internal.feditest_assertion_raises::hard",
+                    "name": "internal.feditest_assertion_raises::degraded",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::implied",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::implied_degraded",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::implied_problem",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::implied_unaffected",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::implied_unknown",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::must",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::must_degraded",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::must_problem",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::must_unaffected",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::must_unknown",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::problem",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::should",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::should_degraded",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::should_problem",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::should_unaffected",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::should_unkown",
                     "rolemapping": null,
                     "skip": null
                 },
@@ -42,7 +122,32 @@
                     "skip": null
                 },
                 {
-                    "name": "internal.feditest_assertion_raises::soft",
+                    "name": "internal.feditest_assertion_raises::unaffected",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::unknown",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::unspecified_degraded",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::unspecified_problem",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::unspecified_unaffected",
+                    "rolemapping": null,
+                    "skip": null
+                },
+                {
+                    "name": "internal.feditest_assertion_raises::unspecified_unknown",
                     "rolemapping": null,
                     "skip": null
                 },
@@ -77,7 +182,7 @@
                     "skip": null
                 }
             ],
-            "name": null
+            "name": "Empty (for internal tests only)"
         }
     ],
     "name": "All internal tests"
