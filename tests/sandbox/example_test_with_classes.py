@@ -18,7 +18,7 @@ from typing import List
 
 from hamcrest import close_to, equal_to
 
-from feditest import hard_assert_that, soft_assert_that, step, test
+from feditest import SpecLevel, assert_that, step, test
 from feditest.protocols.sandbox import SandboxLogEvent, SandboxMultClient, SandboxMultServer
 
 
@@ -43,24 +43,23 @@ class ExampleTest1:
 
     @step
     def step1(self):
-
         self.server.start_logging()
 
         self.c : float = self.client.cause_mult(self.server, self.a, self.b)
 
-        hard_assert_that(self.c, close_to(15.0, 0.5))
+        assert_that(self.c, close_to(15.0, 0.5))
 
         log: List[SandboxLogEvent] = self.server.get_and_clear_log()
 
-        hard_assert_that(len(log), equal_to(1))
-        hard_assert_that(log[0].a, equal_to(self.a))
-        hard_assert_that(log[0].b, equal_to(self.b))
-        hard_assert_that(log[0].c, equal_to(self.c))
+        assert_that(len(log), equal_to(1))
+        assert_that(log[0].a, equal_to(self.a))
+        assert_that(log[0].b, equal_to(self.b))
+        assert_that(log[0].c, equal_to(self.c))
 
     @step
     def step2(self):
 
         c_squared = self.client.cause_mult(self.server, self.c, self.c)
 
-        soft_assert_that(c_squared, close_to(self.c * self.c, 0.001))
-        hard_assert_that(c_squared, close_to(self.c * self.c, 0.5))
+        assert_that(c_squared, close_to(self.c * self.c, 0.001), spec_level=SpecLevel.SHOULD)
+        assert_that(c_squared, close_to(self.c * self.c, 0.5))
