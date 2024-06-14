@@ -12,7 +12,7 @@ from typing import List
 
 from hamcrest import close_to, equal_to
 
-from feditest import hard_assert_that, soft_assert_that, test
+from feditest import InteropLevel, SpecLevel, assert_that, test
 from feditest.protocols.sandbox import SandboxLogEvent, SandboxMultClient, SandboxMultServer
 
 
@@ -31,14 +31,14 @@ def example_test1(
 
     c : float = client.cause_mult(server, a, b)
 
-    hard_assert_that(c, equal_to(14.0))
+    assert_that(c, equal_to(14.0))
 
     log: List[SandboxLogEvent] = server.get_and_clear_log()
 
-    hard_assert_that(len(log), equal_to(1))
-    hard_assert_that(log[0].a, equal_to(a))
-    hard_assert_that(log[0].b, equal_to(b))
-    hard_assert_that(log[0].c, equal_to(c))
+    assert_that(len(log), equal_to(1))
+    assert_that(log[0].a, equal_to(a))
+    assert_that(log[0].b, equal_to(b))
+    assert_that(log[0].c, equal_to(c))
 
 
 @test
@@ -54,7 +54,7 @@ def example_test2(
 
     c : float = client.cause_mult(server, a, b)
 
-    soft_assert_that(c, close_to(14.7, 0.01))
+    assert_that(c, close_to(14.7, 0.01), spec_level=SpecLevel.SHOULD)
 
 
 @test
@@ -70,4 +70,4 @@ def example_test3(
 
     c = client.cause_mult(server, a, b)
 
-    hard_assert_that(c, equal_to(a * b))
+    assert_that(c, equal_to(a * b))
