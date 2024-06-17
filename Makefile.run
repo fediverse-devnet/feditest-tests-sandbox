@@ -38,8 +38,7 @@ sandbox-transcripts-tap : \
   $(patsubst %, $(EX)/testresults/%.tap, $(SANDBOX_TESTPLANS))
 
 sandbox-transcripts-html : \
-  $(patsubst %, $(EX)/testresults/%.sequential.html, $(SANDBOX_TESTPLANS)) \
-  $(patsubst %, $(EX)/testresults/%.testmatrix.html, $(SANDBOX_TESTPLANS))
+  $(patsubst %, $(EX)/testresults/%.html, $(SANDBOX_TESTPLANS))
 
 internal : \
   internal-transcripts \
@@ -53,8 +52,7 @@ internal-transcripts-tap : \
   $(patsubst %, $(EX)/testresults/%.tap, $(INTERNAL_TESTPLANS))
 
 internal-transcripts-html : \
-  $(patsubst %, $(EX)/testresults/%.sequential.html, $(INTERNAL_TESTPLANS)) \
-  $(patsubst %, $(EX)/testresults/%.testmatrix.html, $(INTERNAL_TESTPLANS))
+  $(patsubst %, $(EX)/testresults/%.html, $(INTERNAL_TESTPLANS))
 
 
 ########## General rules to make things simpler ##########
@@ -72,19 +70,11 @@ $(EX)/testresults/%.json : $(EX)/testplans/%.json dirs
 		--in $< \
 		--tap $@
 
-# Given a testrun JSON transcript, convert it to HTML format with a template that lists everything that happened in sequential order
-%.sequential.html : %.json
+# Given a testrun JSON transcript, convert it to HTML format
+%.html : %.json
 	$(FEDITEST) convert-transcript \
 		--in $< \
-		--html $@ \
-		--template testrun-report-sequential-standalone
-
-# Given a testrun JSON transcript, convert it to HTML format with a template that creates a test matrix
-%.testmatrix.html : %.json
-	$(FEDITEST) convert-transcript \
-		--in $< \
-		--html $@ \
-		--template testrun-report-testmatrix-standalone
+		--html $@
 
 ########## and the rest ##########
 
