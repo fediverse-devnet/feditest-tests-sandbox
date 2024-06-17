@@ -75,7 +75,7 @@ $(EX)/constellations/clientA-vs-server2faulty.json : \
 
 $(EX)/constellations/degenerate-empty.json : \
   dirs
-	echo '{\n    "name" : "Empty (for internal tests only)",\n    "roles" : {}\n}' > $@
+	echo '{ "name": "Empty (for internal tests only)", "roles" : {}}' | jq . > $@ 
 
 
 #### Example test plans ##########
