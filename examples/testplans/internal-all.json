@@ -185,5 +185,6 @@
             "name": "Empty (for internal tests only)"
         }
     ],
-    "name": "All internal tests"
+    "name": "All internal tests",
+    "feditest_version": "0.3"
 }

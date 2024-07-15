@@ -39,5 +39,6 @@
             "name": "clientA vs server1"
         }
     ],
-    "name": "All sandbox tests running clientA against server1"
+    "name": "All sandbox tests running clientA against server1",
+    "feditest_version": "0.3"
 }

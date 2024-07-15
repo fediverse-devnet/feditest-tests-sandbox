@@ -77,5 +77,6 @@
             "name": "clientA vs server2faulty"
         }
     ],
-    "name": "All sandbox tests running clientA against both server1 and then faulty server2"
+    "name": "All sandbox tests running clientA against both server1 and then faulty server2",
+    "feditest_version": "0.3"
 }
