@@ -1,4 +1,5 @@
-from feditest import SkipTestException, SpecLevel, InteropLevel, assert_that, test
+from feditest import SpecLevel, InteropLevel, assert_that, test
+from feditest.protocols import SkipTestException
 
 
 @test
