@@ -186,5 +186,6 @@
         }
     ],
     "name": "All internal tests",
+    "type": "feditest-testplan",
     "feditest_version": "0.3"
 }
