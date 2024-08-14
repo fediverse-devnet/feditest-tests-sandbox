@@ -4,11 +4,11 @@
             "constellation": {
                 "roles": {
                     "client": {
-                        "nodedriver": "sandbox.SandboxMultClientDriver_ImplementationA",
+                        "nodedriver": "SandboxMultClientDriver_ImplementationA",
                         "parameters": null
                     },
                     "server": {
-                        "nodedriver": "sandbox.SandboxMultServerDriver_Implementation2Faulty",
+                        "nodedriver": "SandboxMultServerDriver_Implementation2Faulty",
                         "parameters": null
                     }
                 },
@@ -40,5 +40,6 @@
         }
     ],
     "name": "All sandbox tests running clientA against faulty server2",
+    "type": "feditest-testplan",
     "feditest_version": "0.3"
 }
