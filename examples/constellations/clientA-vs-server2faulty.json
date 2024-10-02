@@ -2,11 +2,15 @@
     "roles": {
         "client": {
             "nodedriver": "SandboxMultClientDriver_ImplementationA",
-            "parameters": null
+            "parameters": null,
+            "accounts": null,
+            "non_existing_accounts": null
         },
         "server": {
             "nodedriver": "SandboxMultServerDriver_Implementation2Faulty",
-            "parameters": null
+            "parameters": null,
+            "accounts": null,
+            "non_existing_accounts": null
         }
     },
     "name": "clientA vs server2faulty"

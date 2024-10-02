@@ -26,8 +26,7 @@ $(EX) : \
 ########## Example session templates ##########
 
 $(EX)-session-templates : \
-  $(EX)/session-templates/sandbox-all.json \
-  $(EX)/session-templates/internal-all.json
+  $(EX)/session-templates/sandbox-all.json
 
 $(EX)/session-templates/sandbox-all.json : \
   dirs \
@@ -37,21 +36,12 @@ $(EX)/session-templates/sandbox-all.json : \
 		--filter 'sandbox' \
 		--out $@
 
-$(EX)/session-templates/internal-all.json : \
-  dirs \
-  tests/internal/*.py
-	$(FEDITEST) create-session-template \
-		--name 'Internal all' \
-		--filter 'internal' \
-		--out $@
-
 
 ##### Example constellations ##########
 
 $(EX)-constellations : \
   $(EX)/constellations/clientA-vs-server1.json \
-  $(EX)/constellations/clientA-vs-server2faulty.json \
-  $(EX)/constellations/degenerate-empty.json
+  $(EX)/constellations/clientA-vs-server2faulty.json
 
 $(EX)/constellations/clientA-vs-server1.json : \
   dirs \
@@ -73,18 +63,13 @@ $(EX)/constellations/clientA-vs-server2faulty.json : \
 		--node server=examples/nodes/server2faulty.json \
 		--out $@
 
-$(EX)/constellations/degenerate-empty.json : \
-  dirs
-	echo '{ "name": "Empty (for internal tests only)", "roles" : {}}' | jq . > $@ 
-
 
 #### Example test plans ##########
 
 $(EX)-testplans : \
   $(EX)/testplans/sandbox-all-clientA-vs-server1.json \
   $(EX)/testplans/sandbox-all-clientA-vs-server2faulty.json \
-  $(EX)/testplans/sandbox-all-clientA-vs-both-server1-server2faulty.json \
-  $(EX)/testplans/internal-all.json
+  $(EX)/testplans/sandbox-all-clientA-vs-both-server1-server2faulty.json
 
 $(EX)/testplans/sandbox-all-clientA-vs-server1.json : \
   dirs \
@@ -114,19 +99,10 @@ $(EX)/testplans/sandbox-all-clientA-vs-both-server1-server2faulty.json : \
 	$(FEDITEST) create-testplan \
 		--name 'All sandbox tests running clientA against both server1 and then faulty server2' \
 		--session-template $(EX)/session-templates/sandbox-all.json \
-		--constellation $(EX)/constellations/clientA-vs-server1.json $(EX)/constellations/clientA-vs-server2faulty.json \
+		--constellation $(EX)/constellations/clientA-vs-server1.json \
+        --constellation $(EX)/constellations/clientA-vs-server2faulty.json \
 		--out $@
 
-
-$(EX)/testplans/internal-all.json : \
-  dirs \
-  $(EX)/session-templates/internal-all.json \
-  $(EX)/constellations/degenerate-empty.json
-	$(FEDITEST) create-testplan \
-		--name 'All internal tests' \
-		--session-template $(EX)/session-templates/internal-all.json \
-		--constellation $(EX)/constellations/degenerate-empty.json \
-		--out $@
 
 
 ########## and the rest ##########
