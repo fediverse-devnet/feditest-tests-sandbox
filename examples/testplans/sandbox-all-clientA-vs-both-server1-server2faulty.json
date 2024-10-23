@@ -1,91 +1,66 @@
 {
-    "sessions": [
-        {
-            "constellation": {
-                "roles": {
-                    "client": {
-                        "nodedriver": "SandboxMultClientDriver_ImplementationA",
-                        "parameters": null,
-                        "accounts": null,
-                        "non_existing_accounts": null
-                    },
-                    "server": {
-                        "nodedriver": "SandboxMultServerDriver_Implementation1",
-                        "parameters": null,
-                        "accounts": null,
-                        "non_existing_accounts": null
-                    }
-                },
-                "name": "clientA vs server1"
+    "session_template": {
+        "tests": [
+            {
+                "name": "sandbox.example_test_with_classes::ExampleTest1",
+                "rolemapping": null,
+                "skip": null
             },
-            "tests": [
-                {
-                    "name": "sandbox.example_test_with_classes::ExampleTest1",
-                    "rolemapping": null,
-                    "skip": null
+            {
+                "name": "sandbox.example_test_with_functions::example_test1",
+                "rolemapping": null,
+                "skip": null
+            },
+            {
+                "name": "sandbox.example_test_with_functions::example_test2",
+                "rolemapping": null,
+                "skip": null
+            },
+            {
+                "name": "sandbox.example_test_with_functions::example_test3",
+                "rolemapping": null,
+                "skip": null
+            }
+        ],
+        "name": "All sandbox tests"
+    },
+    "constellations": [
+        {
+            "roles": {
+                "client": {
+                    "nodedriver": "SandboxMultClientDriver_ImplementationA",
+                    "parameters": null,
+                    "accounts": null,
+                    "non_existing_accounts": null
                 },
-                {
-                    "name": "sandbox.example_test_with_functions::example_test1",
-                    "rolemapping": null,
-                    "skip": null
-                },
-                {
-                    "name": "sandbox.example_test_with_functions::example_test2",
-                    "rolemapping": null,
-                    "skip": null
-                },
-                {
-                    "name": "sandbox.example_test_with_functions::example_test3",
-                    "rolemapping": null,
-                    "skip": null
+                "server": {
+                    "nodedriver": "SandboxMultServerDriver_Implementation1",
+                    "parameters": null,
+                    "accounts": null,
+                    "non_existing_accounts": null
                 }
-            ],
+            },
             "name": "clientA vs server1"
         },
         {
-            "constellation": {
-                "roles": {
-                    "client": {
-                        "nodedriver": "SandboxMultClientDriver_ImplementationA",
-                        "parameters": null,
-                        "accounts": null,
-                        "non_existing_accounts": null
-                    },
-                    "server": {
-                        "nodedriver": "SandboxMultServerDriver_Implementation2Faulty",
-                        "parameters": null,
-                        "accounts": null,
-                        "non_existing_accounts": null
-                    }
+            "roles": {
+                "client": {
+                    "nodedriver": "SandboxMultClientDriver_ImplementationA",
+                    "parameters": null,
+                    "accounts": null,
+                    "non_existing_accounts": null
                 },
-                "name": "clientA vs server2faulty"
-            },
-            "tests": [
-                {
-                    "name": "sandbox.example_test_with_classes::ExampleTest1",
-                    "rolemapping": null,
-                    "skip": null
-                },
-                {
-                    "name": "sandbox.example_test_with_functions::example_test1",
-                    "rolemapping": null,
-                    "skip": null
-                },
-                {
-                    "name": "sandbox.example_test_with_functions::example_test2",
-                    "rolemapping": null,
-                    "skip": null
-                },
-                {
-                    "name": "sandbox.example_test_with_functions::example_test3",
-                    "rolemapping": null,
-                    "skip": null
+                "server": {
+                    "nodedriver": "SandboxMultServerDriver_Implementation2Faulty",
+                    "parameters": null,
+                    "accounts": null,
+                    "non_existing_accounts": null
                 }
-            ],
+            },
             "name": "clientA vs server2faulty"
         }
     ],
     "name": "All sandbox tests running clientA against both server1 and then faulty server2",
     "type": "feditest-testplan",
-    "feditest_version": "0.3"
+    "feditest_version": "0.4"
 }

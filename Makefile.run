@@ -6,11 +6,11 @@
 # invoke this Makefile with extra parameter FEDITEST=path/to/my/feditest
 #
 
-FEDITEST=feditest
-Q=
+FEDITEST?=feditest
+Q?=
 # Could set from the command-line to something like: 'Q=.$(shell git branch --show-current)'
 
-EX=examples$(Q)
+EX?=examples$(Q)
 
 SANDBOX_TESTPLANS= \
   sandbox-all-clientA-vs-server1 \
@@ -63,7 +63,7 @@ dirs:
 	[[ -d $(EX)/testresults ]] || mkdir -p $(EX)/testresults
 
 clean :
-	rm $(EX)/testresults/*.{json,tap,html} >/dev/null 2>&1 || true
+	rm $(EX)/testresults/*.{json,tap,html,css} >/dev/null 2>&1 || true
 
 
 .PHONY : \

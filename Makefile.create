@@ -7,11 +7,11 @@
 # invoke this Makefile with extra parameter FEDITEST=path/to/my/feditest
 #
 
-FEDITEST=feditest
-Q=
+FEDITEST?=feditest
+Q?=
 # Could set from the command-line to something like: 'Q=.$(shell git branch --show-current)'
 
-EX=examples$(Q)
+EX?=examples$(Q)
 
 default : all
 
@@ -100,7 +100,7 @@ $(EX)/testplans/sandbox-all-clientA-vs-both-server1-server2faulty.json : \
 		--name 'All sandbox tests running clientA against both server1 and then faulty server2' \
 		--session-template $(EX)/session-templates/sandbox-all.json \
 		--constellation $(EX)/constellations/clientA-vs-server1.json \
-        --constellation $(EX)/constellations/clientA-vs-server2faulty.json \
+		--constellation $(EX)/constellations/clientA-vs-server2faulty.json \
 		--out $@
 
 
