@@ -63,7 +63,7 @@ dirs:
 	[[ -d $(EX)/testresults ]] || mkdir -p $(EX)/testresults
 
 clean :
-	rm $(EX)/testresults/*.{json,tap,html} >/dev/null 2>&1 || true
+	rm $(EX)/testresults/*.{json,tap,html,css} >/dev/null 2>&1 || true
 
 
 .PHONY : \
