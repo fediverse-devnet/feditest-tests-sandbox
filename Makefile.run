@@ -6,25 +6,21 @@
 # invoke this Makefile with extra parameter FEDITEST=path/to/my/feditest
 #
 
-FEDITEST=feditest
-Q=
+FEDITEST?=feditest
+Q?=
 # Could set from the command-line to something like: 'Q=.$(shell git branch --show-current)'
 
-EX=examples$(Q)
+EX?=examples$(Q)
 
 SANDBOX_TESTPLANS= \
   sandbox-all-clientA-vs-server1 \
   sandbox-all-clientA-vs-server2faulty \
   sandbox-all-clientA-vs-both-server1-server2faulty
 
-INTERNAL_TESTPLANS= \
-  internal-all
-
 default : clean sandbox
 
 all : \
-  sandbox \
-  internal
+  sandbox
 
 sandbox : \
   sandbox-transcripts \
@@ -39,21 +35,6 @@ sandbox-transcripts-tap : \
 
 sandbox-transcripts-html : \
   $(patsubst %, $(EX)/testresults/%.html, $(SANDBOX_TESTPLANS))
-
-internal : \
-  internal-transcripts \
-  internal-transcripts-tap \
-  internal-transcripts-html
-
-internal-transcripts : \
-  $(patsubst %, $(EX)/testresults/%.json, $(INTERNAL_TESTPLANS))
-
-internal-transcripts-tap : \
-  $(patsubst %, $(EX)/testresults/%.tap, $(INTERNAL_TESTPLANS))
-
-internal-transcripts-html : \
-  $(patsubst %, $(EX)/testresults/%.html, $(INTERNAL_TESTPLANS))
-
 
 ########## General rules to make things simpler ##########
 
@@ -82,11 +63,10 @@ dirs:
 	[[ -d $(EX)/testresults ]] || mkdir -p $(EX)/testresults
 
 clean :
-	-rm $(EX)/testresults/*.{json,tap,html} >/dev/null 2>&1
+	rm $(EX)/testresults/*.{json,tap,html,css} >/dev/null 2>&1 || true
 
 
 .PHONY : \
   default all dirs clean \
-  sandbox sandbox-transcript sandbox-transcripts-tap sandbox-transcripts-html \
-  internal internal-transcript internal-transcripts-tap internal-transcripts-html
+  sandbox sandbox-transcript sandbox-transcripts-tap sandbox-transcripts-html
 
