@@ -62,5 +62,5 @@
     ],
     "name": "All sandbox tests running clientA against both server1 and then faulty server2",
     "type": "feditest-testplan",
-    "feditest_version": "0.4"
+    "feditest_version": "0.5"
 }
