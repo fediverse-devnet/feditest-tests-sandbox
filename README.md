@@ -1,4 +1,4 @@
-## Feditest-test-sandbox: a sandbox protocol to try FediTest with
+## `feditest-test-sandbox`: a sandbox protocol to try FediTest with
 
 This repo contains:
 
